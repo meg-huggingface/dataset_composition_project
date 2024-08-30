@@ -15,9 +15,11 @@ NUM_EXAMPLES = 1281167
 # Arbitrary small number, only using in devv'ing (uncomment #.take(DEV_AMOUNT) below to use it).
 DEV_AMOUNT = 100
 
-def main(percentage):
+def main(percentage=10):
+  # Just for timing how long this takes.
   start = time.time()
   
+  print("Randomizing %d percent of the data." % percentage)
   # Set the random seed, based on the percentage, so that our random changes are reproducible.
   random.seed(percentage)
 
