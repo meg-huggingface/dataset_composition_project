@@ -16,6 +16,7 @@ NUM_EXAMPLES = 1281167
 DEV_AMOUNT = 100
 
 def main(percentage=10):
+  global randomize_subset
   # Just for timing how long this takes.
   start = time.time()
   
