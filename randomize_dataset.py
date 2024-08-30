@@ -12,6 +12,7 @@ https://huggingface.co/datasets/datacomp
 # The number of examples/instances in this dataset is copied from the model card: 
 # https://huggingface.co/datasets/ILSVRC/imagenet-1k
 NUM_EXAMPLES = 1281167
+# Arbitrary small number, only using in devv'ing (uncomment #.take(DEV_AMOUNT) below to use it).
 DEV_AMOUNT = 100
 
 def main(percentage):
