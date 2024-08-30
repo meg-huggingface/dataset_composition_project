@@ -2,21 +2,16 @@ import sys
 import random
 from datasets import load_dataset, Dataset
 
+"""
+This code is designed to read in the ImageNet 1K ILSVRC dataset from the Hugging Face Hub, 
+then create a new version of this dataset with {percentage} lines with random labels between 0-9,
+then upload this new version of the Hugging Face Hub, in the Data Composition organization:
+https://huggingface.co/datasets/datacomp
+"""
+
 # Copied from the website: https://huggingface.co/datasets/ILSVRC/imagenet-1k
 NUM_EXAMPLES = 1281167
 DEV_AMOUNT = 100
-
-def randomize_labels(examples, indices):
-  # What set of examples should be randomized in this batch?
-  # This is the intersection of the batch indices and the indices we randomly selected to change the labels of.
-  batch_subset = list(set(indices) & randomize_subset)
-  # If this batch has indices that we're changing the label of....
-  if batch_subset != []:
-    # Change the label to a random integer between 0 and 9
-    for n in range(len(indices)):
-        index = indices[n]
-        examples["label"][n] = random.randint(0, 9) if index in batch_subset else examples["label"][n]
-return examples
 
 def main(percentage):
   start = time.time()
@@ -41,6 +36,18 @@ def main(percentage):
   
   end = time.time()
   print("That took %d seconds" % (end - start))
+
+def randomize_labels(examples, indices):
+  # What set of examples should be randomized in this batch?
+  # This is the intersection of the batch indices and the indices we randomly selected to change the labels of.
+  batch_subset = list(set(indices) & randomize_subset)
+  # If this batch has indices that we're changing the label of....
+  if batch_subset != []:
+    # Change the label to a random integer between 0 and 9
+    for n in range(len(indices)):
+        index = indices[n]
+        examples["label"][n] = random.randint(0, 9) if index in batch_subset else examples["label"][n]
+return examples
 
 
 if __name__ == "__main__":
