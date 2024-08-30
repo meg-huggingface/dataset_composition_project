@@ -9,7 +9,8 @@ then upload this new version of the Hugging Face Hub, in the Data Composition or
 https://huggingface.co/datasets/datacomp
 """
 
-# Copied from the website: https://huggingface.co/datasets/ILSVRC/imagenet-1k
+# The number of examples/instances in this dataset is copied from the model card: 
+# https://huggingface.co/datasets/ILSVRC/imagenet-1k
 NUM_EXAMPLES = 1281167
 DEV_AMOUNT = 100
 
